@@ -1,440 +1,503 @@
-body {
+/* Reset di base */
+* {
     margin: 0;
-    background-color: #111;
-    color: white;
-    font-family: sans-serif;
-}
-
-header{
-    background: linear-gradient(rgb(255, 255, 255),rgba(0, 42, 255, 0.2));src: url(6956331-abf-lettera-logo-design-su-sfondo-bianco-abf-creative-initials-lettera-logo-concept-abf-lettera-design-vettoriale.50.jpg);
-    background-size: cover;
-    background-position:center ;
-    margin: 0px 0px 50px 0px;
-}
-
-/*MENU STICKY-HAMBURGER*/
-
-div.navbar.clearfix{
-    position: fixed; 
-}
-
-
-.navbar {
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Stile del body */
+  header{
     background-color: #000000;
-    color: #fff;
-    overflow: hidden;
-    position: sticky;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
+  }
+                                                                                                                                          
+  /* Contenitore principale con grid */
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); /* 12 colonne */
+    grid-template-rows: auto; /* Altezza automatica per le righe */
+    gap: 10px; /* Spaziatura tra gli elementi */
+  }
+  
+  /* Stili per le sezioni */
+  .header {
+    grid-column: span 12; /* Header occupa tutte le colonne */
+    background: linear-gradient(135deg, rgb(255, 0, 0), rgb(0, 37, 224));
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #444;
+  }
+  /*MENU STICKY*/
+  .navbar {
+    grid-column: span 12; /* Navbar occupa tutte le colonne */
+    background-color: #222;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 15px;
-}
-
-.navbar img {
-    height: 40px;
-}
-
-/* Stile per il menu hamburger */
-.menu-toggle {
+    position: sticky; /* Rende la navbar sticky */
+    top: 0; /* Posizione sticky in alto */
+    z-index: 1000; /* Assicura che la navbar sia sopra altri elementi */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  }
+  
+  .navbar a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background-color 0.3s;
+    text-align: center;
+  }
+  
+  .navbar a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+  }
+  
+  .main-content {
+    grid-column: span 8; /* Main content occupa 8 colonne */
+    padding: 20px;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .sidebar {
+    grid-column: span 4; /* Sidebar occupa 4 colonne */
+    padding: 20px;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .footer {
+    grid-column: span 12; /* Footer occupa tutte le colonne */
+    background-color: #222;
+    text-align: center;
+    padding: 20px;
+    border-top: 2px solid #444;
+  }
+  
+  /* Stile per il menu hamburger */
+  .menu-toggle {
     display: none;
     flex-direction: column;
     cursor: pointer;
-}
-
-.bar {
+  }
+  
+  .bar {
     height: 3px;
     width: 25px;
     background-color: white;
     margin: 3px 0;
-}
-
-/* Nascondi i link di navigazione per il mobile */
-.nav-links {
-    display: flex;
-    flex-direction: row;
-}
-
-.nav-links a {
-    display: block;
-    color: #fff;
-    padding: 14px 20px;
-    text-decoration: none;
-}
-
-.nav-links a:hover {
-    background-color: #ff0000;
-    border-radius: 20px;
-}
-
-/* Media query per dispositivi mobili */
-@media (max-width: 768px) {
+  }
+  
+  /* Media query per schermi più piccoli */
+  @media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(6, 1fr); /* 6 colonne per schermi più piccoli */
+    }
+  
+    .main-content {
+        grid-column: span 6; /* Main content occupa tutte le colonne */
+    }
+  
+    .sidebar {
+        grid-column: span 6; /* Sidebar occupa tutte le colonne */
+    }
+  
+    .navbar {
+        flex-direction: column; /* Cambia la direzione della navbar */
+    }
+  
     .nav-links {
         display: none; /* Nascondi i link di navigazione di default */
         flex-direction: column;
         width: 100%;
-        background-color: #000000;
+        background-color: #222;
     }
-
-    .nav-links a {
-        text-align: left; /* Allineare il testo a sinistra */
-        padding: 10px 15px; /* Riduci il padding */
-    }
-
+  
     .menu-toggle {
         display: flex; /* Mostra l'icona del menu hamburger su dispositivi mobili */
     }
-
+  
     .nav-links.active {
         display: flex; /* Mostra i link quando il menu è attivo */
     }
-}
-
-/* Clearfix per gestire il flottante */
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
-/*HOME*/
-
-div.Benvenuto{
-    background-color: #000000;
-    width: 100%;
-
-}
-
-
-div.Benvenuto h3{
-    color: #ffffff;
-    margin-top: 15px;
-    padding-top:150px;
-    margin-bottom: 10px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 25px;
-    font-weight: 500;
-    margin-left: 50px;
-}
-
-div.Benvenuto h1{
+  }
+  
+  /* Media query per schermi molto piccoli */
+  @media (max-width: 480px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* 1 colonna per schermi molto piccoli */
+    }
     
-    margin-top: 30px;
-    margin-bottom: 30px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 50px;
-    font-weight: 700;
-    margin-left: 50px;
-    color: transparent;
-    background: linear-gradient(to bottom, hsl(275, 100%, 50%), hsl(190, 100%, 50%));
-    background-clip: text;
-}
-
-div.Benvenuto h4{
-    color: #ffffff;
-    margin-top: 30px;
-    margin-bottom: 40px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    margin-left: 50px;
-}
-
-div.Benvenuto a{
-    margin-left: 50px;
-    background-color: #ffffff;
-    border-radius: 20px;
-    border-style: solid;
+    .navbar {
+        flex-direction: column; /* Navbar in colonna per schermi molto piccoli */
+    }
+  }
+  
+  /* Stile per i link di navigazione */
+  .nav-links a {
+    display: inline-block;
     padding: 10px;
-    color: #000000;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: 700;
-    
-}
-
-div.Benvenuto p{
-    text-align: right;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 170px;
-    font-weight: 800;
-    color: transparent;
-    background: linear-gradient(to bottom, hsl(177, 100%, 50%), hsl(301, 100%, 50%));
-    background-clip: text;
-    margin-bottom: 0px;
-    margin-top: 30px;
-}
-
-/*ABOUT ME*/
-
-div#about-me{
-    color: #00cff4;
-    background-color: transparent;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    text-align: center;
-    font-weight: 700;
-    font-size: 50px;
-    padding: 40px;
-    padding-top: 60px;
-}
-
-div.about-me-img-p p.description-text{
-    font-size: 18px;
-    line-height: 28px;
-    color: #000000;
-    text-align:center;
-    background-color: transparent;
-    font-weight: 700;
-}
-
-div.about-me-img-p{
-    margin: auto;
-}
-
-.about-me-img-p{
-    width: 80%;
-    margin: 50px auto;
-    display: flex;
-    gap: 10px; /* spazio tra gli elementi */
-}
-
-/*Curriculum*/
-
-div.Curriculum{
-    width: 80%;
-    margin: 50px auto;
-    display: flex;
-    gap: 10px; /* spazio tra gli elementi */
-    padding-top: 60px;
-
-}  
-
-div.container-sx{
-    background-color:  #000080;
-    width: 400px;
-}
-
-div.container-sx h2{
-    color: #fafafa;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    text-transform: uppercase;
-    font-size: 40px;
-}
-
-div.container-sx h3{
-    color: #fafafa;
-    font-size: 20px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-div.container-sx p{
-    color: #fafafa;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-div.container-sx li{
-    color: #fafafa;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-div.container-sx h4{
-    color: #fafafa;
-    font-size: 20px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-div.container-dx{
-    width: 80%;
-    text-align: left;
-    background-color: #fafafa;    
-}
-
-div.nome h2{
-    text-transform: uppercase;
-    font-size: 40px;
-}
-div.nome h3{
-    text-transform: uppercase;
-    font-size: 25px;
-    padding-top: 10px;
-}
-
-div.container-dx h2{
-    text-transform: uppercase;
-    font-size: 30px;
-    padding: 10px ,0 ,10px ,0 ;
-    font-weight: bold;
-    color: #0000ff;
-}
-
-div.profilo h3{
-    font-size: 20px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: #000000;
-}
-
-div.esperienze-lavorative h5{
-    text-align: right;
-    text-transform: uppercase;
-}
-
-/*SOCIAL*/
-
-div.social{
-    padding: 20px;
-}
-
-ul.socials {
-    list-style: none;
-    padding-right: 200px;
-}
-
-div.social p{
-    font-size: 40px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: 700;
-    color: #ff0000;
-
-}
-
-ul.socials li {
-    display: inline;
-    margin-right: 10px;
-}
-
-ul.socials a {
+  color: #fff;
     text-decoration: none;
-    color: #5400f1;
-    font-size: 24px;
-}
+    transition: color 0.3s;
+  }
+  
+  .nav-links a:hover {
+    color: #ffcc00; /* Colore di hover per i link */
+  }
+  
+  /* Stile per i pulsanti */
+  .button {
+    background-color: #ffcc00; /* Colore di sfondo del pulsante */
+    color: #111; /* Colore del testo */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .button:hover {
+    background-color: #e6b800; /* Colore di hover per il pulsante */
+  }
+  
+  /* Stile per le intestazioni */
+  h1, h2, h3 {
+    color: #ffcc00; /* Colore delle intestazioni */
+    margin-bottom: 10px;
+  }
+  
+  /* Stile per i paragrafi */
+  p {
+    line-height: 1.6; /* Altezza della linea per una migliore leggibilità */
+    margin-bottom: 15px;
+  }
+  
+  /*BENVENUTO*/
+  * {
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --gradient: linear-gradient(45deg, #ff7c7d, #ffda67);
+    --card: #272524;
+  }
 
-ul.socials a:hover {
-    color: #09ff00; 
-}
-
-div.social-icons {
+  .bodycard{
     display: flex;
-    gap: 15px; /* Spaziatura tra le icone */
-}
+    justify-content: center;
+    padding: 100px;
+  }
+ 
+  .card {
+    display: flex;
+    align-items: center;
+    width: 75vw;
+    max-width: 650px;
+    padding: 44px 30px 44px 20px;
+    background: var(--card);
+    border-radius: 24px;
+    place-items: center;
+    justify-content: center;
+    background :var(--gradient);
+  }
+  .card img {
+    max-width: 280px;
+    width: 36vw;
+    height: 300px;
+    object-fit: cover;
+    margin-left: -60px;
+    margin-right: 30px;
+    border-radius: inherit;
+    box-shadow: 0 60px 40px rgb(0 0 0 / 8%);
+    transition: border-radius 0.3s;
+  }
+  
+  .card h2 {
+    font-size: 22px;
+    font-weight: 400;
+    margin-top: 0;
+    margin-right: 30px;
+    margin-bottom: 10px;
+    color: #ff0000;
+  }
+  
+  .card h3 {
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0;
+    opacity: 0.75;
+    color: #000000;
+  }
+  
+  .card p {
+    font-size: 13px;
+    font-weight: 400;
+    margin-bottom: 30px;
+    opacity: 0.5;
+  }
+  
+  .social{
+   display: flex;
+   justify-content: space-between;
+  }
 
-div.social-icons img {
-    width: 24px; /* Dimensione delle icone */
-    height: 24px; /* Imposta l'altezza */
-    transition: transform 0.3s; /* Transizione per il passaggio del mouse */
-}
 
-div.social-icons img:hover {
-    transform: scale(1.1); /* Ingrandisce l'icona al passaggio del mouse */
-}
-
-
-/*CONTACT ME*/
-
-div.content{
-    padding: 25px;
-    width: 100%;
-    box-sizing: border-box; 
-    margin: 0 auto;
-    float: left ; 
-    
+  
+  @media (width <= 600px) {
+    .card {
+      margin: 0 40px;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-bottom: 60px;
+      width: 100%;
+      text-align: center;
+      flex-direction: column;
+    }
+  
+    .card h2 {
+      margin-right: 0;
+      font-size: 26px;
+    }
+  
+    .card img {
+      margin: -100px 0 30px 0;
+      width: 100%;
+      max-width: 1000px;
+      height: 250px;
+    }
+  
+    .card p {
+      max-width: 360px;
+    }
+  
+    .socials {
+      justify-content: center;
+    }
+  }
+  
+  @media (width <= 440px) {
+    .card img {
+      height: 50vw;
+      width: 50vw;
+      border-radius: 50%;
+      border: 12px solid var(--card);
+      box-shadow: none;
+      margin: -140px 0 30px 0;
     }
 
-#modulo {
-    border-top: solid 4px #ff3535; 
-    border-bottom:solid 4px #8400ff ;
-    padding: 15px;
-    background: #2200ff;
-    color: #ff0000;
-    overflow: auto;
-    margin-top: 0px;
-    background-color: #2507bd;
-}
-
-
-#modulo h3{
-    margin: 15px 0 25px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: 700;
-    font-size: 25px;
-}
-
-#modulo ul{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-}
-
-#modulo ul li{
-    padding: 10px 0 ;
-    width: 50%;
-    float: left;
-    box-sizing: border-box;
-}
-
-#modulo ul li.tre,#modulo ul li.quattro{
-    float: none;
-    clear: left;
-    width: 100%;
-}
-
-#modulo ul li.uno{
-    margin-right: 1%;
-}
-
-#modulo ul li.quattro{
-    padding: 20px 0;
-    text-align: center;
-}
-
-#modulo ul li.label {
-    display: block;
-    padding-bottom: 5px;
-    width: 50%;
-}
-
-#modulo ul li input{
-    border: solid 2px #ffffff;
-    background: rgba(255, 255, 255, 0); 
-    color: #000000;
-    float: left;
-}
-
-#modulo ul li.testo{
-    padding: 10px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-#modulo ul li textarea {
-    padding: 10px;
-    color: #fafafa;
-    width: 100%;
-    height: 100px;
-    background: rgba(0, 0, 0, 0.2);
-    border: solid 2px;
-    box-sizing: border-box;
-}
-
-#modulo ul li.pulsante{
-    color: #1e0505;
-    background: #1796ad;
-    border: solid 2px #000000;
-    padding: 12px 25px;
-    text-transform: uppercase;
-    cursor: pointer;
-    font-weight: bold;
-    transition:0.5s ;
-}
-
-#modulo ul li .pulsante:hover{
-    background: #00ff6a;
-    color: #000000;
-    border: solid 2px #00cff4;
-}
-
-button.pulsante{
+  }
+  /* ABOUT ME */
+  div#about-me {
+    background: #000000;
     border-radius: 20px;
-    background: linear-gradient(to bottom, hsl(273, 100%, 50%), hsl(50, 100%, 50%));
-}
+    padding: 20px;
+  }
+  
+  div.BP{
+    background-color: #272524;
+    padding: 25px;
+  }
+
+  img.Foto {
+    width: 224px; 
+    height: 297px; /* Mantiene le proporzioni dell'immagine */
+  
+  }
+  
+  
+  div.about-me-img-p {
+    display: flex;
+    gap: 10px;
+    justify-content: left; /* Centra le immagini */
+    padding: 20px;
+  }
+  
+  div.titolo-about-me h2 {
+    color: #e6b800;
+    font-size: 40px;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-top: 40px;
+  }
+  
+  div.titolo-about-me {
+    background-color: transparent;
+    border-radius: 20px;
+  }
+
+  div.title-p{
+    background-color: #111;
+    border-radius: 24px;
+  }
+  
+  div.p {
+    border-radius: 20px;
+    background-color: transparent;
+  }
+  
+  div.p p {
+    padding: 20px;
+    font-size: 25px;
+    color: #e6b800;
+  }
+  
+  /* Media query per schermi più piccoli */
+  @media (max-width: 768px) {
+    div.titolo-about-me h2 {
+        font-size: 30px; /* Riduci la dimensione del font per schermi più piccoli */
+    }
+  
+    div.p p {
+        font-size: 18px; /* Riduci la dimensione del font per schermi più piccoli */
+    }
+  
+    img.Foto {
+        width: 50%; /* Assicura che l'immagine occupi tutta la larghezza del contenitore */
+    }
+  }
+    
+  /* Media query per schermi molto piccoli */
+  @media (max-width: 480px) {
+    div.titolo-about-me h2 {
+        font-size: 24px; /* Ulteriore riduzione della dimensione del font */
+    }
+  
+    div.p p {
+        font-size: 16px; /* Ulteriore riduzione della dimensione del font */
+    }
+  }
+    
+  /*SOCIAL*/
+  
+  div.social{
+    background-color: #8000ff;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .social p{
+    color: #e6b800;
+    font-size: 25px;
+    font-weight: 700;
+    text-align: center;
+  }
+  
+  .social i {
+    border-radius: 20px;
+  }
+  
+  i.fab.fa-instagram,i.fab.fa-tiktok,i.fab.fa-github{
+    background-color: #e6b800;
+    padding: 10px
+  }
+
+
+  
+  /*CONTATTAMI*/
+  
+  /* Stile per il footer */
+  footer {
+    background-color: #222; /* Colore di sfondo del footer */
+    padding: 20px; /* Padding interno */
+    color: #f0f0f0; /* Colore del testo */
+  }
+  
+  /* Stile per la sezione del modulo */
+  #modulo {
+    max-width: 600px; /* Larghezza massima del modulo */
+    margin: 0 auto; /* Centra il modulo */
+    background-color: #1a1a1a; /* Colore di sfondo del modulo */
+    border-radius: 8px; /* Angoli arrotondati */
+    padding: 20px; /* Padding interno */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Ombra */
+  }
+  
+  /* Stile per i titoli */
+  #contattami h3 {
+    text-align: center; /* Allinea il titolo al centro */
+    color: #ffcc00; /* Colore del titolo */
+    margin-bottom: 20px; /* Margine inferiore */
+  }
+  
+  /* Stile per la lista */
+  #myForm ul {
+    list-style-type: none; /* Rimuove i punti della lista */
+    padding: 0; /* Rimuove il padding */
+  }
+  
+  /* Stile per gli elementi della lista */
+  #myForm li {
+    margin-bottom: 15px; /* Margine inferiore per separare gli elementi */
+  }
+  
+  /* Stile per i campi di input */
+  .Testo,
+  textarea {
+    width: 100%; /* Larghezza al 100% per adattarsi al contenitore */
+    padding: 10px; /* Padding interno */
+    border: 1px solid #444; /* Bordo */
+    border-radius: 5px; /* Angoli arrotondati */
+    background-color: #333; /* Colore di sfondo */
+    color: #fff; /* Colore del testo */
+    font-size: 16px; /* Dimensione del font */
+  }
+  
+  /* Stile per le etichette */
+  label {
+    display: block; /* Rende le etichette blocchi */
+    margin-bottom: 5px; /* Margine inferiore */
+    color: #ffcc00; /* Colore delle etichette */
+  }
+  
+  /* Stile per il pulsante */
+  .pulsante {
+    background-color: #ffcc00; /* Colore di sfondo del pulsante */
+    color: #111; /* Colore del testo */
+    padding: 10px 20px; /* Padding interno */
+    border: none; /* Nessun bordo */
+    border-radius: 5px; /* Angoli arrotondati */
+    cursor: pointer; /* Cambia il cursore */
+    transition: background-color 0.3s; /* Transizione per il colore di sfondo */
+    width: 100%; /* Larghezza al 100% */
+  }
+  
+  .pulsante:hover {
+    background-color: #e6b800; /* Colore di hover per il pulsante */
+  }
+  
+  /* Media query per schermi più piccoli */
+  @media (max-width: 768px) {
+    #modulo {
+        padding: 15px; /* Riduci il padding per schermi più piccoli */
+    }
+  
+    .Testo,
+    textarea {
+        padding: 8px; /* Riduci il padding per i campi di input */
+    }
+  
+    .pulsante {
+        padding: 8px 16px; /* Riduci il padding per il pulsante */
+    }
+  }
+  
+  /* Media query per schermi molto piccoli */
+  @media (max-width: 480px) {
+    #modulo {
+        padding: 10px; /* Ulteriore riduzione del padding */
+    }
+  
+    .Testo,
+    textarea {
+        padding: 6px; /* Ulteriore riduzione del padding per i campi di input */
+    }
+  
+    .pulsante {
+        padding: 6px 12px; /* Ulteriore riduzione del padding per il pulsante */
+    }
+  }
