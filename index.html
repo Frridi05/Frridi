@@ -90,7 +90,7 @@
         <div class="titolo-about-me">
             <h2>Benvenuto/a mi presento
             </h2>
-        </div>
+        </div> 
         <div class="about-me-img-p">
             <div class="p">   
                 <p class="description-text">
@@ -147,10 +147,14 @@
                 alert('Errore nell\'invio dell\'email: ' + JSON.stringify(error));
             });
     });
-</script>
-<script>
+
     document.getElementById("mobile-menu").addEventListener("click", function() {
-    const navLinks = document.getElementById("nav-links");
-    navLinks.classList.toggle("active"); // Assicurati di avere una classe CSS per gestire la visibilità
-});
+        const navLinks = document.getElementById("nav-links");
+        navLinks.classList.toggle("active"); // Aggiunge/rimuove la classe "active"
+        if (navLinks.classList.contains("active")) {
+            navLinks.style.display = "block"; // Mostra il menu
+        } else {
+            navLinks.style.display = "none"; // Nasconde il menu
+        }
+    });
 </script>
